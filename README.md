@@ -29,6 +29,7 @@ src/
 4. Implementasi Konsep PBO
 a. Inheritance (Pewarisan)
 Semua class operasi database mewarisi dari class Koneksi:
+
 java// Parent Class - Base Connection
 public class Koneksi {
     protected Connection conn;  // Protected agar bisa diakses child class
@@ -39,6 +40,7 @@ public class Koneksi {
         // Password: ABCDE12345VWXYZ
     }
 }
+
 // Child Classes - Semua extends dari Koneksi
 public class MembuatTabel extends Koneksi { ... }
 public class MenambahkanData extends Koneksi { ... }
@@ -108,10 +110,12 @@ javapublic class MenambahkanData extends Koneksi {
         // Parameter binding untuk keamanan
     }
 }
+
 c. READ/SELECT - Menampilkan Data (MembacaData.java)
 Extends: Koneksi
 Penggunaan ResultSet: Hanya di class ini (sesuai requirement)
 Output: Format yang rapi dengan separator "|"
+
 javapublic class MembacaData extends Koneksi {
     public void tampilkanData() {
         Statement stmt = conn.createStatement();
@@ -127,6 +131,7 @@ javapublic class MembacaData extends Koneksi {
         }
     }
 }
+
 d. UPDATE - Mengubah Data (MengubahData.java)
 Extends: Koneksi
 Fitur: Update nama siswa berdasarkan NIS
@@ -141,6 +146,7 @@ javapublic class MengubahData extends Koneksi {
         pst.setString(2, nis);
     }
 }
+
 e. DELETE - Menghapus Data (MenghapusData.java)
 Extends: Koneksi
 Fitur: Hapus siswa berdasarkan NIS
