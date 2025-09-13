@@ -29,8 +29,8 @@ src/
 4. Implementasi Konsep PBO
 a. Inheritance (Pewarisan)
 Semua class operasi database mewarisi dari class Koneksi:
-
 java// Parent Class - Base Connection
+
 public class Koneksi {
     protected Connection conn;  // Protected agar bisa diakses child class
     public Koneksi() {
@@ -121,7 +121,6 @@ javapublic class MembacaData extends Koneksi {
         Statement stmt = conn.createStatement();
         String sql = "SELECT * FROM siswa";
         ResultSet rs = stmt.executeQuery(sql);  // HANYA di sini ResultSet digunakan
-        
         while (rs.next()) {
             // Mengambil data dengan rs.getString() dan rs.getInt()
             System.out.println(rs.getString("nis") + " | " + 
